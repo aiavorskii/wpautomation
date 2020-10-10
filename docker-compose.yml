@@ -1,0 +1,31 @@
+version: '3.3'
+services:
+  wordpress:
+    image: wordpress:latest
+    restart: always
+    links:
+      - db:mysql
+    ports:
+      - "86:80"
+    working_dir: /var/www/html
+    volumes:
+      - ./wp/wp-content:/var/www/html/wp-content"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    networks:
+      - wpaut
+  db:
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - ./mysql:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    networks:
+      - wpaut
