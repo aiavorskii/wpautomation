@@ -29,3 +29,6 @@ services:
       MYSQL_PASSWORD: wordpress
     networks:
       - wpaut
+
+networks:
+  wpaut:

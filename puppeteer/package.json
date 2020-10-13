@@ -9,8 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "puppeteer": "5.2.1",
     "fs": "0.0.1-security",
-    "http": "0.0.1-security"
+    "googleapis": "^61.0.0",
+    "http": "0.0.1-security",
+    "puppeteer": "5.2.1"
   }
 }
